@@ -45,7 +45,7 @@ $default-order:
   $large: ();
 
   @if length($list) > 1 {
-    $seed: nth($list, ceil(calc(length($list) / 2)));
+    $seed: nth($list, ceil(length($list) / 2));
 
     @each $item in $list {
       @if $item == $seed {

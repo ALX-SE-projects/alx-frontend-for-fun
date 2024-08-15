@@ -1,5 +1,13 @@
 /* Write a Sass file that sorts the variable $list_to_sort and prints the sorted list in the debug output. */
 @import '103-sort_list.scss';
+
+// Sort the list alphabetically
+$sorted_list: ();
 @each $name in $list_to_sort {
-    @debug #{$name};
+  @if index($sorted_list, $name) == 0 or $name < nth($sorted_list, index($sorted_list, $name)) {
+    $sorted_list: append($sorted_list, $name);
+  }
 }
+
+// Print the sorted list in the debug output
+@include debug($sorted_list);
